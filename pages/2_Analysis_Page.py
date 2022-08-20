@@ -153,7 +153,7 @@ elif choice == "Find by a Product Name":
                 }
                 response = requests.request("POST", url, headers=headers, data=payload)
                 if response.status_code == 200:
-                    st.write("Dag has been trigged")
+                    st.write("Dag has been trigged,please wait 15 minutes")
                 else:
                     st.write("Unable to trigger the dag")
     with col3:
