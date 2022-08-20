@@ -7,17 +7,21 @@ import os
 from logfunc import logfunc
 
 logfunc('script start','append_product_search_review_ratings',200)
+try:
+    credentials = service_account.Credentials.from_service_account_file('./key.json')
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']='./key.json'
+    client = bigquery.Client()
+    logfunc('read credentials','append_product_search_review_ratings',200)
+except Exception as e:
+    logfunc('Invalid or unable to read credentials','append_product_search_review_ratings',400)
 
-credentials = service_account.Credentials.from_service_account_file('./key.json')
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']='./key.json'
-client = bigquery.Client()
 
 try:
     productnpage = pandas_gbq.read_gbq(
     f'SELECT * FROM `defect-detection-356414.for_logs.product` ',project_id='defect-detection-356414', credentials=credentials)
     pages=int(productnpage['pages'].iloc[0])
     pages=pages
-    logfunc()
+    logfunc('successfully read product table','append_product_search_review_ratings',200)
 except Exception as e:
     logfunc('error in reading dataframe from bigquery product table','append_product_search_review_ratings',400)
 
