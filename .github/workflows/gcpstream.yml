@@ -7,7 +7,7 @@ jobs:
     name: Build and Push to GCP
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: damg7245-assignment03-streamlit-dep
+      IMAGE_NAME: damg7245-final-streamlit-dep
       PROJECT_ID: i-azimuth-359508
     steps:
     - name: Checkout
