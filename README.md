@@ -12,10 +12,10 @@ Recommends products to the user on the basis of review sentiment analysis
 
 
 ## Architecture 
-For bestsellers scraping
+### For bestsellers scraping
 ![alt text](images/architecture.png)
 
-For rest of the Apis
+### For rest of the Apis
 ![alt text](images/Architecture1.png)
 
 
