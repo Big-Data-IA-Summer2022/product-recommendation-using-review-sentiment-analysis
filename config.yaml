@@ -1,0 +1,23 @@
+credentials:
+  usernames:
+    adina:
+      name: Adina
+      password: $2b$12$YQ6rZyXhodZVR2PcQokcg.JOQ0c2Wkgb4Z20aB4OetmkCPER9HX3a # To be replaced with hashed password
+    abhijit:
+      name: Abhijit
+      password: $2b$12$JzUqeUkrs9G0c8PCuJCg6usn5uJUvLVdWLp1X.YzLD49w6UFWED7G # To be replaced with hashed password
+    ta:
+      name: Parth
+      password: $2b$12$iCChPvhG28kN.6zQfBdBdOaO3YhAt3DJ5aXqoZFiIPShLRC0H7xCy
+    professor:
+      name: Professor
+      password: $2b$12$A36bpERgvJjvZodGydOSP.eEY/VkEMPreYIWqAtgaC/IKGWBHRjCK
+    user:
+      name: My New Friend
+      password: $2b$12$oZiIXAdaLf/Ed275wqKkl.1wQxF194tqr83sPzBSlk1MSRojXClhK
+
+
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
