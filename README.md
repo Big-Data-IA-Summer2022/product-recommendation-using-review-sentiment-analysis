@@ -10,6 +10,11 @@ Our system allows users to quickly view any Amazon product information in detail
 4. As a user I do not have enough time to check all the user reviews to decide which product to buy.
 5. As a Company, I want to Increase my customer pageviews to drive traffic and increase my sales
 
+# Streamlit Application:
+
+[link](https://damg7245-finalproject-sentiment-analysis-fol52rb4xq-ue.a.run.app)
+
+Username: user Passoword: user
 
 ## Description 
 Recommends products to the user on the basis of review sentiment analysis
