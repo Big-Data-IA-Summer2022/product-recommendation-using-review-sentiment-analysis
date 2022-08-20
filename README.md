@@ -46,12 +46,12 @@ Update scraperforasin.py \
 scraperforurl.py \
 Update scraperforurl.py \
 selectors.yml \
-urlscraperdag.py \
+urlscraperdag.py 
 
 * Model Train \
 Contains CNN model and pickle file for sentiment review rating: \
 amazon_reviewscnn.hdf5 \
-training_model.py \
+training_model.py 
 
 * api-for-prediction branch \
 Contains fast api for review prediction: \
@@ -60,7 +60,7 @@ README.md \
 amazon_reviewscnn.hdf5 \
 key.json \
 main.py \
-requirements.txt \
+requirements.txt 
 
 * for streamlit \
 Contains our streamlit application: \
@@ -73,7 +73,7 @@ hashed_password.py \
 image.png \
 key.json \
 requirements.txt \
-test.py \
+test.py 
 
 * Pytest \
 Unit test for all the functions we used: \
@@ -82,7 +82,7 @@ test_get_asin_1.py \
 test_product_rating.py \
 test_read_scrape.py \
 test_review_scraper.py \
-test_scraping_amazon_reviews.py \
+test_scraping_amazon_reviews.py 
 
 
 
