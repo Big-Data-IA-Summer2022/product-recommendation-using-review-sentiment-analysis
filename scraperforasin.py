@@ -10,16 +10,26 @@ from google.cloud import bigquery
 import os
 import random
 import time
+from logfunc import logfunc
 
-credentials = service_account.Credentials.from_service_account_file('./key.json',)
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']='./key.json'
-client = bigquery.Client()
+logfunc('script start','scraperforasin',200)
+
+try:
+    credentials = service_account.Credentials.from_service_account_file('./key.json',)
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']='./key.json'
+    client = bigquery.Client()
+except Exception as e:
+    logfunc('Invalid credentials','scraperforasin',400)
 
 
+try:
+    productnpage = pandas_gbq.read_gbq(
+    f'SELECT * FROM `defect-detection-356414.for_logs.product-asin` ',project_id='defect-detection-356414', credentials=credentials)
+    print(productnpage)
+    logfunc('read product-asin dataframe from BQ','scraperforasin',200)
+except Exception as e:
+    logfunc('unable to read product-asin dataframe from BQ','scraperforasin',300)
 
-productnpage = pandas_gbq.read_gbq(
-f'SELECT * FROM `defect-detection-356414.for_logs.product-asin` ',project_id='defect-detection-356414', credentials=credentials)
-print(productnpage)
 
 asin=productnpage['asin'].iloc[0]
 
@@ -33,8 +43,10 @@ extractor = selectorlib.Extractor.from_yaml_file('selectors.yml')
 print(extractor,'extractor')
 def scrape(asin: str, y: int):
     if len(asin)!=10:
+        logfunc('Invalid Asin','scraperforasin',300)
         return 'Invalid Asin'
     else:
+        logfunc('valid Asin','scraperforasin',300)
         print('asin is valid')
     p=0
     n=0
@@ -56,12 +68,9 @@ def scrape(asin: str, y: int):
         'sec-fetch-dest': 'document',
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         }
-        proxies_list = ["128.199.109.241:8080","113.53.230.195:3128","125.141.200.53:80","125.141.200.14:80","128.199.200.112:138","149.56.123.99:3128","128.199.200.112:80","125.141.200.39:80","134.213.29.202:4444"]
-        proxies = {'https': random.choice(proxies_list)}
         print("Downloading %s"%url)
         time.sleep(0.5 * random.random())
-        r = requests.get(url, headers=headers, proxies=proxies)
-        print(r.text)
+        r = requests.get(url, headers=headers)
         if r.status_code > 500:
             if "To discuss automated access to Amazon data please contact" in r.text:
                 print("Page %s was blocked by Amazon. Please try using better proxies\n"%url)
@@ -114,9 +123,12 @@ def scrape(asin: str, y: int):
     df['review_rating']=result
     df=df.head(1)
     print(df)
-
-    pandas_gbq.to_gbq(df, 'for_logs.product-asin-ratings', project_id='defect-detection-356414', if_exists='replace', credentials=credentials)
-  
+    
+    try:
+        pandas_gbq.to_gbq(df, 'for_logs.product-asin-ratings', project_id='defect-detection-356414', if_exists='replace', credentials=credentials)
+        logfunc('Successfully populated table product-asin-ratings','scraperforasin',200)
+    except Exception as e:
+        logfunc('Unable to populate table product-asin-ratings','scraperforasin',500)
 
     return 'done'
 
