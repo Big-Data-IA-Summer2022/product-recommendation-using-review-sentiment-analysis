@@ -9,16 +9,28 @@ import pandas_gbq
 from google.cloud import bigquery
 import os
 from types import NoneType
+from logfunc import logfunc
 
-credentials = service_account.Credentials.from_service_account_file('./key.json',)
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']='./key.json'
-client = bigquery.Client()
+logfunc('script start','scraperforurl',200)
+try:
+    credentials = service_account.Credentials.from_service_account_file('./key.json',)
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']='./key.json'
+    client = bigquery.Client()
+    logfunc('read credentials','scraperforurl',200)
+except Exception as e:
+    logfunc('Invalid or unable to read credentials','scraperforurl',400)
 
 
 
-productnpage = pandas_gbq.read_gbq(
-f'SELECT * FROM `defect-detection-356414.for_logs.product-url` ',project_id='defect-detection-356414', credentials=credentials)
-print(productnpage)
+try:
+    productnpage = pandas_gbq.read_gbq(
+    f'SELECT * FROM `defect-detection-356414.for_logs.product-url` ',project_id='defect-detection-356414', credentials=credentials)
+    print(productnpage)
+    logfunc('read product-url dataframe from BQ','scraperforurl',200)
+except Exception as e:
+    logfunc('unable to read product-url dataframe from BQ','scraperforurl',300)
+
+
 url=productnpage['url'].iloc[0]
 print('url is',url)
 y=int(productnpage['pages'].iloc[0])
@@ -108,10 +120,12 @@ def scrape(url: str, y: int):
     df['review_rating']=result
     df=df.head(1)
     print(df)
-
-    pandas_gbq.to_gbq(df, 'for_logs.product-url-ratings', project_id='defect-detection-356414', if_exists='replace', credentials=credentials)
+    try:
+        pandas_gbq.to_gbq(df, 'for_logs.product-url-ratings', project_id='defect-detection-356414', if_exists='replace', credentials=credentials)
+        logfunc('Successfully populated table product-url-ratings','scraperforurl',200)
+    except Exception as e:
+        logfunc('Unable to populate table product-asin-ratings','scraperforurl',500)
   
-
     return 'done'
 
 scrape(url,y)
