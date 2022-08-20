@@ -1,0 +1,11 @@
+requests
+bs4
+pandas
+google-auth
+pandas-gbq
+google-cloud
+fastapi
+uvicorn
+tqdm==2.2.3
+selectorlib
+python-dotenv
