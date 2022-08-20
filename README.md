@@ -12,11 +12,11 @@ Our system allows users to quickly view any Amazon product information in detail
 
 # Streamlit Application:
 
-[link](https://damg7245-finalproject-sentiment-analysis-fol52rb4xq-ue.a.run.app)
+https://damg7245-finalproject-sentiment-analysis-fol52rb4xq-ue.a.run.app
 
 Username: user Passoword: user
 
-## Description 
+## Project Description 
 Recommends products to the user on the basis of review sentiment analysis
 
 ## Links used for the project
