@@ -1,4 +1,15 @@
 # product-recommendation-using-review-sentiment-analysis 
+# Overview:
+One of the most important problems in e-commerce is that it is easy for users to feel disoriented. When users are dazzled, they can't quickly get the relevant information they want on a product page. Users must read through all ratings and reviews to get results. Looking at just one product may not reveal the severity of the problem, but with multiple products, it can be time-consuming.
+Our system allows users to quickly view any Amazon product information in detail while providing review rating insights.
+
+#User Cases:
+1. As a user I don't have a specific goal but instead searches for the right product to buy. It ends with opening countless product pages and viewing all the information, including ratings of the product, user reviews, etc.
+2. As a user I want to understand user reviews on top-selling pages or user reviews on product links to decide what to purchase quickly.
+3. As a user I'm only interested in a specific product but don't want to waste time finding lengthy information 
+4. As a user I do not have enough time to check all the user reviews to decide which product to buy.
+5. As a Company, I want to Increase my customer pageviews to drive traffic and increase my sales
+
 
 ## Description 
 Recommends products to the user on the basis of review sentiment analysis
