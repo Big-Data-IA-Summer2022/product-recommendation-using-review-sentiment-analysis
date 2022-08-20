@@ -22,8 +22,7 @@ Recommends products to the user on the basis of review sentiment analysis
 ---
 
 ## Branch Descriptions
-* Airflow-Dags-and-Script Branch \
-Contain all the function scripts in airflow dag : \
+* Airflow-Dags-and-Script Branch - Contain all the function scripts in airflow dag : \
 AmazonBestSeller.csv \
 Bestsellerdag.py \
 ScrapingAmazonReviews.py \
@@ -48,13 +47,11 @@ Update scraperforurl.py \
 selectors.yml \
 urlscraperdag.py 
 
-* Model Train \
-Contains CNN model and pickle file for sentiment review rating: \
+* Model Train - Contains CNN model and pickle file for sentiment review rating: \
 amazon_reviewscnn.hdf5 \
 training_model.py 
 
-* api-for-prediction branch \
-Contains fast api for review prediction: \
+* api-for-prediction branch - Contains fast api for review prediction: \
 Dockerfile \
 README.md \
 amazon_reviewscnn.hdf5 \
@@ -62,8 +59,7 @@ key.json \
 main.py \
 requirements.txt 
 
-* for streamlit \
-Contains our streamlit application: \
+* for streamlit - Contains our streamlit application: \
 Dockerfile \
 Home_Page.py \
 architecture.png \
@@ -75,8 +71,7 @@ key.json \
 requirements.txt \
 test.py 
 
-* Pytest \
-Unit test for all the functions we used: \
+* Pytest - Unit test for all the functions we used: \
 test_get_asin.py \
 test_get_asin_1.py \
 test_product_rating.py \
