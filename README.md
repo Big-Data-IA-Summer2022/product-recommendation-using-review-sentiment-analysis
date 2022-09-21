@@ -24,7 +24,7 @@ Recommends products to the user on the basis of review sentiment analysis
 * PPT - [link](https://docs.google.com/document/d/1GfmdoByty7ZWO9nkfJnps5On1DQxQDlSLDi5CvqImD8/edit?usp=sharing)
 * Airflow - [link](http://35.196.111.228:8080/home)
 * FastAPI Doc - [link](http://34.73.35.12:8090/docs)
-* Streamlit Frontend - [link](https://damg7245-finalproject-sentiment-analysis-fol52rb4xq-ue.a.run.app)
+* Streamlit Frontend - [link](https://damg7245-finalproject-sentiment-analysis-fol52rb4xq-ue.a.run.app) 
 
 
 ## Architecture 
